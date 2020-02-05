@@ -115,6 +115,7 @@ class App extends React.Component {
 
   render() {
     const { isSignedIn, route, imageUrl, box } = this.state;
+    console.log('loaduser', this.loadUser);
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
@@ -133,7 +134,7 @@ class App extends React.Component {
             <FaceRecognition imageUrl={imageUrl} box={box} />
           </div>
         ) : route === 'signin' ? (
-          <Signin onRouteChange={this.onRouteChange} />
+          <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
           <Register
             onRouteChange={this.onRouteChange}
