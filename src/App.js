@@ -115,7 +115,7 @@ class App extends React.Component {
 
   render() {
     const { isSignedIn, route, imageUrl, box } = this.state;
-    console.log('loaduser', this.loadUser);
+    //console.log('loaduser', this.loadUser);
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
@@ -126,7 +126,10 @@ class App extends React.Component {
         {route === 'home' ? (
           <div>
             <Logo />
-            <Rank />
+            <Rank
+              name={this.state.user.name}
+              entries={this.state.user.entries}
+            />
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
