@@ -49,7 +49,7 @@ class App extends React.Component {
       imageUrl: '',
       box: {},
       route: 'signin',
-      isSignedIn: false,
+      //isSignedIn: false,
       user: {
         id: '',
         name: '',
@@ -118,23 +118,23 @@ class App extends React.Component {
   };
 
   onRouteChange = route => {
-    if (this.state.route === 'signout') {
-      this.setState({ isSignedIn: false });
-    } else if (this.state.route === 'home') {
-      this.setState({ isSignedIn: true });
-    } else {
-      this.setState({ route: route });
-    }
+    // if (this.state.route === 'signout') {
+    //   this.setState({ isSignedIn: false });
+    // } else if (this.state.route === 'home') {
+    //   this.setState({ isSignedIn: true });
+    // } else {
+    this.setState({ route: route });
+    // }
   };
 
   render() {
-    const { isSignedIn, route, imageUrl, box } = this.state;
+    const { route, imageUrl, box } = this.state;
     //console.log('loaduser', this.loadUser);
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
         <Navigation
-          isSignedIn={isSignedIn}
+          //isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
         />
         {route === 'home' ? (
