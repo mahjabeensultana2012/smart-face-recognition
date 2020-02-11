@@ -110,7 +110,8 @@ class App extends React.Component {
             .then(response => response.json())
             .then(count => {
               this.setState(Object.assign(this.state.user, { entries: count }));
-            });
+            })
+            .catch(console.log('error'));
         }
 
         this.displayFaceBox(this.calculationFaceLocation(response));
@@ -122,7 +123,7 @@ class App extends React.Component {
     if (route === 'signout') {
       this.setState(initialState);
     }
-    // } else if (this.state.route === 'home') {
+    // else if (this.state.route === 'home') {
     //   this.setState({ isSignedIn: true });
     // } else {
     this.setState({ route: route });
