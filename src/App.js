@@ -123,22 +123,20 @@ class App extends React.Component {
   onRouteChange = route => {
     if (route === 'signout') {
       this.setState(initialState);
+    } else if (route === 'home') {
+      this.setState({ isSignedIn: true });
     }
-    //else if (route === 'home') {
-    //   this.setState({ isSignedIn: true });
-    // } else {
     this.setState({ route: route });
-    // }
   };
 
   render() {
-    const { route, imageUrl, box } = this.state;
+    const { route, isSignedIn, imageUrl, box } = this.state;
     //console.log('loaduser', this.loadUser);
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
         <Navigation
-          //isSignedIn={isSignedIn}
+          isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
         />
         {route === 'home' ? (
